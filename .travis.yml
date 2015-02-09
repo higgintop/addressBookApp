@@ -1,13 +1,17 @@
 language: node_js
 node_js:
   - '0.10'
-before_install: 
+before_install:
   - npm install -g npm
   - npm install -g bower
   - bower install
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
-script:   
-  - npm run test -- karma.conf-ci.js
+script:
+  - npm run test -- karma.conf.js
 after_script:
   - cat ./coverage/PhantomJS*/lcov.info | ./node_modules/codeclimate-test-reporter/bin/codeclimate.js
+env:
+  global:
+    - secure: itzkDT/auTAlKfjagLvkkQrl5pzWQPF3PRd1g94tQdOxRvxycnNOm3ZmpqTmJj1N8/DQt+0/tskKF/H5tYoUWvBtYly/ITfinuO8kEFBbPRe2QTYAbKYGt2tMDlS+ipRWMLZ08u0gH2kN/kp+MSzmhCTEW7etyd+b7vzt4sz3CI=
+    - secure: 3n0CzTq5ulkNfU1s/eDT1lOxLwsx2BXCEdLFEm/ISlmJEghIFGzOrKNm5Fi6YBvuGWH0+EoCP/jt9J1AQ1+rwpbQ62U+hXAGyrNGJU2w11e+z7Hur+eLiJzMzDaNHFb5YGn4vZSvJnfHTOiPPAzRJ497nJ/F1Av2KD1b5TmOhOo=
