@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Address Book</title>
+    <link rel="stylesheet" href="../bower_components/foundation/css/foundation.css">
+    <link rel="stylesheet" href="./css/main.css">
+  </head>
+  <body>
+      <h1>Address Book</h1>
+
+      <button id="newContactBtn">Add New Contact</button>
+
+      <div class="container">
+        <div id="formContainer" class="contactFormContainer">
+          <form>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" value=""  />
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" value=""  />
+            <label for="twitter">Twitter:</label>
+            <input type="text" name="twitter" id="twitter" value=""  />
+            <label for="photo_url">Photo Url:</label>
+            <input type="text" name="photo_url" id="photo_url" value=""/>
+            <input type="submit" id="newContact" value="Submit"/>
+          </form>
+        </div>
+        <div class="contactListContainer">
+        <table>
+          <thead>
+            <tr>
+              <th> Name </th>
+              <th> Email </th>
+              <th> Twitter </th>
+              <th> Photo </th>
+              <th> Remove </th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div>
+      </div>
+
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+.contactFormContainer {
+	float: left;
+	margin-left: 50px;
+}
+
+.contactListContainer {
+	float:right;
+	margin-right: 300px;
+	text-align:center;
+	width: 400px;
+}
+
+h1 {
+	text-align: center;
+}
+
+button {
+	margin-left: 50px;
+}
