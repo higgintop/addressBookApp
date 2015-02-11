@@ -120,7 +120,7 @@ $('#newContact').on('click', function(event){
   $('#photo_url').val('');
 
   // make table row for contact list
-  var $tr = $('<tr><td>' + contactName + '</td><td>' + contactEmail + '</td><td>'+ contactTwitter+'</td><td><img src="'+ contactPhoto+'"></td><td><button class="removeBtn">Remove</button><td></tr>');
+  var $tr = $('<tr><td>' + contactName + '</td><td>' + contactEmail + '</td><td><a href="'+ contactTwitter+'">Twitter</a></td><td><img src="'+ contactPhoto+'"></td><td><button class="removeBtn round tiny alert">Remove</button><td></tr>');
 
   // post form data to firebase url
   var data = JSON.stringify({name: contactName, email: contactEmail, twitter: contactTwitter, photoUrl: contactPhoto});
@@ -133,7 +133,7 @@ $('#newContact').on('click', function(event){
 
 
 function addRowToTable(uuid, obj){
-  var $tr = $('<tr><td>' + obj.name + '</td><td>'+ obj.email + '</td><td>'+ obj.twitter+'</td><td><img src="'+ obj.photoUrl+'"></td><td><button class="removeBtn">Remove</button><td></tr>');
+  var $tr = $('<tr><td>' + obj.name + '</td><td>'+ obj.email + '</td><td><a href="'+ obj.twitter+'">Twitter</a></td><td><img src="'+ obj.photoUrl+'"></td><td><button class="removeBtn round tiny alert">Remove</button><td></tr>');
   $tr.attr('data-uuid', uuid);
   $('tbody').append($tr);
 
