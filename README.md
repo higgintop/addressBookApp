@@ -7,3 +7,4 @@ the page.
 
 [![Coverage Status](https://coveralls.io/repos/higgintop/addressBookApp/badge.svg)](https://coveralls.io/r/higgintop/addressBookApp)
 
+[![Build Status](https://travis-ci.org/higgintop/addressBookApp.svg?branch=master)](https://travis-ci.org/higgintop/addressBookApp)
