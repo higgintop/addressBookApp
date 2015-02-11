@@ -9,40 +9,54 @@
     <link rel="stylesheet" href="./css/main.css">
   </head>
   <body>
-      <h1>Address Book</h1>
-
-      <button id="newContactBtn">Add New Contact</button>
-
-      <div class="container">
-        <div id="formContainer" class="contactFormContainer">
-          <form>
-            <label for="name">Name:</label>
-            <input type="text" name="name" id="name" value=""  />
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" value=""  />
-            <label for="twitter">Twitter:</label>
-            <input type="text" name="twitter" id="twitter" value=""  />
-            <label for="photo_url">Photo Url:</label>
-            <input type="text" name="photo_url" id="photo_url" value=""/>
-            <input type="submit" id="newContact" value="Submit"/>
-          </form>
-        </div>
-        <div class="contactListContainer">
-        <table>
-          <thead>
-            <tr>
-              <th> Name </th>
-              <th> Email </th>
-              <th> Twitter </th>
-              <th> Photo </th>
-              <th> Remove </th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-        <div>
+      <div class="login">
+       <h1> Log in or Register for an Address Book</h1>
+        <form>
+          <label for="logInEmail">Email:</label>
+          <input type="email" name="email" id="logInEmail" placeholder="test@example.com"/>
+          <label for="password">Password:</label>
+          <input type="password" name="password" id="password" placeholder="password"/>
+          <button class="loginBtn">Log In</button>
+          <button class="registerBtn">Register</button>
+        </form>
       </div>
+      <div class="loggedIn hidden">
+        <h1>Address Book</h1>
 
+        <button id="newContactBtn">Add New Contact</button>
+        <button class="logoutBtn">Log Out</button>
+
+        <div class="container">
+          <div id="formContainer" class="contactFormContainer">
+            <form>
+              <label for="name">Name:</label>
+              <input type="text" name="name" id="name" value=""  />
+              <label for="email">Email:</label>
+              <input type="email" name="email" id="email" value=""  />
+              <label for="twitter">Twitter:</label>
+              <input type="text" name="twitter" id="twitter" value=""  />
+              <label for="photo_url">Photo Url:</label>
+              <input type="text" name="photo_url" id="photo_url" value=""/>
+              <input type="submit" id="newContact" value="Submit"/>
+            </form>
+          </div>
+          <div class="contactListContainer">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Twitter</th>
+                <th>Photo</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <div>
+        </div>
+      </div>
+    <script src="../bower_components/firebase/firebase.js"></script>
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
     <script src="js/main.js"></script>
   </body>

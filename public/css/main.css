@@ -1,19 +1,23 @@
 .contactFormContainer {
-	float: left;
-	margin-left: 50px;
+  float: left;
+  margin-left: 50px;
 }
 
 .contactListContainer {
-	float:right;
-	margin-right: 300px;
-	text-align:center;
-	width: 400px;
+  float:right;
+  margin-right: 300px;
+  text-align:center;
+  width: 400px;
 }
 
 h1 {
-	text-align: center;
+  text-align: center;
 }
 
 button {
-	margin-left: 50px;
+  margin-left: 50px;
+}
+
+.hidden {
+  display: none;
 }
