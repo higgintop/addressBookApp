@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "public/index.html",
-  "scripts": {
+    "scripts": {
     "karma": "./node_modules/karma/bin/karma start",
-    "test" : "npm run build && npm run karma",
-    "test-once": "npm run build && npm run karma -- --single-run",
+    "test": "npm run karma",
+    "test-once": "npm run karma -- --single-run",
     "deploy": "firebase --email ${FIREBASE_EMAIL} --password ${FIREBASE_PASSWORD} deploy",
-    "build" : "./build.sh",
-    "watch" : "./watch.sh"
+    "build": "./build.sh",
+    "watch": "./watch.sh"
   },
   "repository": {
     "type": "git",

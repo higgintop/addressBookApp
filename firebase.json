@@ -1,6 +1,6 @@
 {
   "firebase": "addressbookcohort8",
-  "public": ".",
+  "public": "public",
   "ignore": [
     "firebase.json",
     "**/.*",
