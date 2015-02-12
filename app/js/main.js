@@ -10,16 +10,19 @@ Logic for:
 var FIREBASE_URL = 'https://addressbookcohort8.firebaseio.com';
 var fb = new Firebase(FIREBASE_URL);
 var usersFbUrl;
+var token;
 
 
 if(fb.getAuth()) {
   // if user is logged in, remove the login div from dom
   $('.login').remove();
   $('.loggedIn').toggleClass('hidden');
-  usersFbUrl = FIREBASE_URL + '/users/' + fb.getAuth().uid + '/data?auth=' + fb.getAuth().token;
+  usersFbUrl = FIREBASE_URL + '/users/' + fb.getAuth().uid + '/data';
+  token = fb.getAuth().token;
+
 
   // load user's contacts from the firebase database
-  $.get(usersFbUrl +'/.json', function(res){
+  $.get(usersFbUrl +'/.json?auth=' + token, function(res){
      Object.keys(res).forEach(function(uuid){
         addRowToTable(uuid,res[uuid]);
      });
@@ -124,7 +127,8 @@ $('#newContact').on('click', function(event){
 
   // post form data to firebase url
   var data = JSON.stringify({name: contactName, email: contactEmail, twitter: contactTwitter, photoUrl: contactPhoto});
-  $.post(usersFbUrl + '/.json?auth=' + fb.getAuth().token, data, function(res){
+  $.post(usersFbUrl + '/.json?auth=' + token, data, function(res){
+    console.log("POST", usersFbUrl + '/.json?auth=' + fb.getAuth().token)
     // add firebase uuid as attribute to table row
     $tr.attr('data-uuid', res.name);
     $('tbody').append($tr);
@@ -148,7 +152,7 @@ $('body').on('click', '.removeBtn', function(evt){
 
   // remove from firebase
   var uuid = $tr.data('uuid');
-  var url = usersFbUrl + '/' + uuid + '.json?auth=' + fb.getAuth().token;
+  var url = usersFbUrl + '/' + uuid + '.json?auth=' + token;
   $.ajax(url, {type: 'DELETE'});
 });
 
