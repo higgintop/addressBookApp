@@ -52,6 +52,19 @@ describe('DOM', function () {
         $('tr').length.should.equal(0);
       });
     });
+
+    describe('logout click', function() {
+      it('should toggle class of hidden on div with class loggedIn', function() {
+        // before logout click, loggedIn div should not be hidden
+        $('.loggedIn').is(':hidden').should.be.false;
+
+        // execute click on remove btn
+        $('.logoutBtn').click();
+
+        // now should be hidden
+        $('.loggedIn').is(':hidden').should.be.false;
+      });
+    });
   });
 
   // LOG IN PAGE TESTS
