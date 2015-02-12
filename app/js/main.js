@@ -2,7 +2,7 @@
 Logic for:
   - login button
   - register button
-  - logout button
+  - logout button 
 ***************************************************************************************/
 
 'use strict'
@@ -16,7 +16,7 @@ if(fb.getAuth()) {
   // if user is logged in, remove the login div from dom
   $('.login').remove();
   $('.loggedIn').toggleClass('hidden');
-  usersFbUrl = FIREBASE_URL + '/users/' + fb.getAuth().uid + '/data';
+  usersFbUrl = FIREBASE_URL + '/users/' + fb.getAuth().uid + '/data?auth=' + fb.getAuth().token;
 
   // load user's contacts from the firebase database
   $.get(usersFbUrl +'/.json', function(res){
@@ -69,7 +69,7 @@ $('.registerBtn').on('click', function(event) {
 
 
 // click logout button
-$('.logoutBtn').on('click', function() {
+$('body').on('click', '.logoutBtn', function(event) {
   console.log("clicked logout button");
   // execute unauth
   fb.unauth();
@@ -124,7 +124,7 @@ $('#newContact').on('click', function(event){
 
   // post form data to firebase url
   var data = JSON.stringify({name: contactName, email: contactEmail, twitter: contactTwitter, photoUrl: contactPhoto});
-  $.post(usersFbUrl + '/.json', data, function(res){
+  $.post(usersFbUrl + '/.json?auth=' + fb.getAuth().token, data, function(res){
     // add firebase uuid as attribute to table row
     $tr.attr('data-uuid', res.name);
     $('tbody').append($tr);
@@ -148,7 +148,9 @@ $('body').on('click', '.removeBtn', function(evt){
 
   // remove from firebase
   var uuid = $tr.data('uuid');
-  var url = usersFbUrl + '/' + uuid + '.json';
+  var url = usersFbUrl + '/' + uuid + '.json?auth=' + fb.getAuth().token;
   $.ajax(url, {type: 'DELETE'});
 });
+
+
 
